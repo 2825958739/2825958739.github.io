@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>npm运行是</title>
+      <title>npm运行项目时出错及解决方法</title>
       <link href="posts/7a46f93c.html"/>
       <url>posts/7a46f93c.html</url>
       
@@ -13,16 +13,14 @@
       
       <categories>
           
-          <category> 博客篇 </category>
+          <category> 错误集 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> PicGo </tag>
-            
-            <tag> GitHub图床 </tag>
+            <tag> npm </tag>
             
         </tags>
       
