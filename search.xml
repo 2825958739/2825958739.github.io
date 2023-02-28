@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>npm运行是</title>
+      <link href="posts/7a46f93c.html"/>
+      <url>posts/7a46f93c.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1、npm-install报错"><a href="#1、npm-install报错" class="headerlink" title="1、npm install报错"></a>1、<code>npm install</code>报错</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s1.ax1x.com/2023/02/28/ppPVOWd.png" alt="https://s1.ax1x.com/2023/02/28/ppPVOWd.png"></p><h3 id="2、npm-run-serve-报错"><a href="#2、npm-run-serve-报错" class="headerlink" title="2、npm run serve 报错"></a>2、<code>npm run serve</code> 报错</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s1.ax1x.com/2023/02/28/ppPu2vj.png" alt="https://s1.ax1x.com/2023/02/28/ppPu2vj.png"></p><blockquote><p>原因与解决方案：电脑安装的node版本过高，安装低版本16.最好不使用17及以上版本，再次npm run serve即可</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s1.ax1x.com/2023/02/28/ppPuhbq.png" alt="https://s1.ax1x.com/2023/02/28/ppPuhbq.png"></p><h3 id="3、编译时出现下面错误"><a href="#3、编译时出现下面错误" class="headerlink" title="3、编译时出现下面错误"></a>3、编译时出现下面错误</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s1.ax1x.com/2023/02/28/ppPuXrR.png" alt="https://s1.ax1x.com/2023/02/28/ppPuXrR.png"></p><blockquote><p>原因与解决方案：这次的错误原因是<u>系统的环境变量没有配置好</u>，刚开始看网上说的还以为是端口被占用了，但是释放端口后还是报错。应该要在环境变量Path中添加<code>C:\Windows\System32</code>或<code>%SystemRoot%\system32;</code></p></blockquote><p>具体步骤：<em>右键我的电脑–高级系统设置–高级–环境变量–系统变量，找到Path，点击添加</em></p><p><strong>注意：</strong>设置完要重新启动vscode才可以生效哦！！</p><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s1.ax1x.com/2023/02/28/ppPuza6.png" alt="https://s1.ax1x.com/2023/02/28/ppPuza6.png"></p><h3 id="4、npm-run-dev-报错"><a href="#4、npm-run-dev-报错" class="headerlink" title="4、npm run dev 报错"></a>4、<code>npm run dev</code> 报错</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s1.ax1x.com/2023/02/28/ppPKPRe.png" alt="https://s1.ax1x.com/2023/02/28/ppPKPRe.png"></p><blockquote><p>原因与解决方案：8080端口被占用了，cmd输入<code>netstat -ano</code>找到 8080端口所在的 PID ，然后打开“<strong>任务管理器</strong>”找到PID，终止程序即可。</p></blockquote><p><a href="https://imgse.com/i/ppPKui8"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s1.ax1x.com/2023/02/28/ppPKui8.png" alt="ppPKui8.png"></a><br><a href="https://imgse.com/i/ppPKKJS"><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s1.ax1x.com/2023/02/28/ppPKKJS.png" alt="ppPKKJS.png"></a></p><h3 id="5、node权限错误"><a href="#5、node权限错误" class="headerlink" title="5、node权限错误"></a>5、node权限错误</h3><p>Error: EPERM: operation not permitted, mkdir ‘E:\noddejs\node_modules\hexo-cli’]</p><blockquote><p>原因与解决方案：没有权限操作nodejs的安装目录。</p><p>在nodejs 的安装目录右击 选择 属性 &gt; tab栏点击 安全 &gt;   编辑按钮 &gt; 下边的权限至少选择到修改 &gt; 可以选择完全控制。然后再次运行安装命令即可。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://s1.ax1x.com/2023/02/28/ppPK1Mj.png" alt="https://s1.ax1x.com/2023/02/28/ppPK1Mj.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客篇 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> PicGo </tag>
+            
+            <tag> GitHub图床 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>koa2框架中使用nodemon热更新</title>
       <link href="posts/e69338fc.html"/>
       <url>posts/e69338fc.html</url>
