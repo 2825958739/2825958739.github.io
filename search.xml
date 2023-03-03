@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>jobWebsite-task-bug</title>
+      <link href="posts/15025ea4.html"/>
+      <url>posts/15025ea4.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 错误集 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PicGo上传图片成功，但是GitHub图床上图片不显示问题</title>
       <link href="posts/77c754e.html"/>
       <url>posts/77c754e.html</url>
