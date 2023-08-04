@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="PicGo上传图片成功，但是GitHub图床上图片不显示问题, 无定文集 计算机 物联网 Web前端开发">
+    <meta name="keywords" content="将ESP8266开发板采集的数据持久化存储到MySQL数据库中, 无定文集 计算机 物联网 Web前端开发">
     <meta name="description" content="本科 | 安徽工程大学 | 物联网工程 | 前端开发">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>PicGo上传图片成功，但是GitHub图床上图片不显示问题 | 无定文集</title>
+    <title>将ESP8266开发板采集的数据持久化存储到MySQL数据库中 | 无定文集</title>
 
     <link rel="icon" type="image/jpeg" href="https://s1.ax1x.com/2022/03/24/qJQKjP.jpg">
 
@@ -347,12 +347,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://raw.githubusercontent.com/2825958739/imgbed/master/posts202303021823633.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928014727.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">PicGo上传图片成功，但是GitHub图床上图片不显示问题</h1>
+                    <h1 class="description center-align post-title">将ESP8266开发板采集的数据持久化存储到MySQL数据库中</h1>
                 </div>
             </div>
         </div>
@@ -471,33 +471,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/PicGo/">
-                                <span class="chip bg-color">PicGo</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%9B%BE%E5%BA%8A/">
-                                <span class="chip bg-color">图床</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/">
-                                <span class="chip bg-color">域名解析</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E9%94%99%E8%AF%AF%E9%9B%86/" class="post-category">
-                                错误集
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -506,28 +485,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-03-02
+                    2023-06-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-02
+                    2023-06-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    281
+                    754
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -545,24 +524,101 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>​       前两天用 PicGo+github 做了个图床，在 PicGo 上把 github 的相关配置弄好后，成功实现了图片上传，而且访问图片链接也能成功显示出图片，但是今天打开博客文章发现文章中的图片迟迟加载不出来，刚开始我还以为是 github 访问慢造成的，后面又刷新了几次还是没加载，所以我就感觉出问题了。</p>
+                <h3 id="如何将-ESP8266开发板采集的数据持久化存储到-MySQL-数据库中？"><a href="#如何将-ESP8266开发板采集的数据持久化存储到-MySQL-数据库中？" class="headerlink" title="如何将 ESP8266开发板采集的数据持久化存储到 MySQL 数据库中？"></a>如何将 ESP8266开发板采集的数据持久化存储到 MySQL 数据库中？</h3><h4 id="1、配置数据库"><a href="#1、配置数据库" class="headerlink" title="1、配置数据库"></a>1、配置数据库</h4><p>修改数据库访问权限，让除了本机以外的 IP 地址也允许访问本地数据库。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:\Users\陈梁\AppData\Roaming\Typora\typora-user-images\1685792437656.png" alt="1685792437656"></p>
+<h4 id="2、安装MySQL-Connector-库"><a href="#2、安装MySQL-Connector-库" class="headerlink" title="2、安装MySQL Connector 库"></a>2、安装MySQL Connector 库</h4><p>先在github上下载该库，然后在Arduino IDE 中导入库文件。</p>
 <blockquote>
-<p>错误：在 github 的图床中打开图片报错<code>Failed to load resource: net::ERR_NAME_NOT_RESOLVE</code></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ChuckBell/MySQL_Connector_Arduino/wiki">Home · ChuckBell/MySQL_Connector_Arduino Wiki (github.com)</a></p>
+<p>关于这个库的使用，其官网上有详细的教程说明，自己去探索。</p>
 </blockquote>
-<blockquote>
-<p>原因与解决方法：官方更新了 dns，但是 dns 缓存没有被更新，导致错误解析。</p>
-</blockquote>
-<ol>
-<li><p>打开一个域名解析网站 <a target="_blank" rel="noopener" href="https://wpboke.net/go.html?url=https://ping.eu/nslookup">ping.eu/nslookup</a> 获取图片域名（raw.githubusercontent.com）的真实 ip 地址：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/2825958739/imgbed/posts202303021823633.png" alt="https://cdn.jsdelivr.net/gh/2825958739/imgbed/posts202303021823633.png"></p>
-</li>
-<li><p>把以上 IP 和域名映射起来：先找到 <code>C:\Windows\System32\drivers\etc\hosts</code> 文件，使用文本编辑器打开。再在文件后面添加以下内容</p>
-</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">185.199.108.133 raw.githubusercontent.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:\Users\陈梁\AppData\Roaming\Typora\typora-user-images\1682519872170.png" alt="1682519872170"></p>
+<p>![1685792912670](C:\Users\陈梁\AppData\Roaming\Typora\typora-user-images\1685792912670.png</p>
+<h4 id="3、查看安装数据库的电脑的-IP-地址"><a href="#3、查看安装数据库的电脑的-IP-地址" class="headerlink" title="3、查看安装数据库的电脑的 IP 地址"></a>3、查看安装数据库的电脑的 IP 地址</h4><p>在电脑终端窗口里输入 ip config 命令，查看本机电脑在局域网中的 IP 地址，后面要将该地址配置到代码中。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:\Users\陈梁\AppData\Roaming\Typora\typora-user-images\1682526340235.png" alt="1682526340235"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:\Users\陈梁\AppData\Roaming\Typora\typora-user-images\1685793263316.png" alt="1685793263316"></p>
+<h4 id="4、ESP8266说明"><a href="#4、ESP8266说明" class="headerlink" title="4、ESP8266说明"></a>4、ESP8266说明</h4><ul>
+<li>在测试的时候我在 esp8266-MCU 上连接了一个 DHT11 温湿度传感器用来采集环境数据。</li>
+<li>注意要将 esp8266 和 装有数据库的电脑连接在同一个局域网中，可以手机开个热点给他们连。</li>
+</ul>
+<h4 id="5、烧录代码"><a href="#5、烧录代码" class="headerlink" title="5、烧录代码"></a>5、烧录代码</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;MySQL_Connection.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;MySQL_Cursor.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;MySQL_Encrypt_Sha1.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;MySQL_Packet.h&gt;</span></span>
 
-<p>   然后保存就可以了，如果遇到图片又不能显示了，大家可依据上述方法及时更新 ip 配置 host 文件即可。</p>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;ESP8266WiFi.h&gt;</span>         <span class="token comment">// esp8266库</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;MySQL_Connection.h&gt;</span>    <span class="token comment">// Arduino连接Mysql的库</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;MySQL_Cursor.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;DHT.h&gt;</span>      <span class="token comment">// DHT库 </span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">DHTPIN A0     </span><span class="token comment">// 定义DHT的引脚</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token expression">DHTTYPE DHT11 </span><span class="token comment">// 定义dht类型</span></span>
 
+DHT <span class="token function">dht</span><span class="token punctuation">(</span>DHTPIN<span class="token punctuation">,</span> DHTTYPE<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 初始化DHT11传感器</span>
+
+IPAddress <span class="token function">server_addr</span><span class="token punctuation">(</span><span class="token number">192</span><span class="token punctuation">,</span><span class="token number">168</span><span class="token punctuation">,</span><span class="token number">43</span><span class="token punctuation">,</span><span class="token number">252</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 安装Mysql的电脑的IP地址</span>
+<span class="token keyword">char</span> user<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"root"</span><span class="token punctuation">;</span>              <span class="token comment">// Mysql的用户名</span>
+<span class="token keyword">char</span> password<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"root"</span><span class="token punctuation">;</span>        <span class="token comment">// 登陆Mysql的密码</span>
+
+<span class="token keyword">char</span> ssid<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"Red"</span><span class="token punctuation">;</span>         <span class="token comment">// WiFi名</span>
+<span class="token keyword">char</span> pass<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"12345678"</span><span class="token punctuation">;</span>     <span class="token comment">// WiFi密码</span>
+
+<span class="token comment">// Mysql中添加一条数据的命令</span>
+<span class="token comment">// arduino_test，test1：刚才创建的数据和表</span>
+<span class="token keyword">char</span> INSERT_SQL<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"INSERT INTO  arduino_test.test1(tem,hem) VALUES ('%s','%s')"</span><span class="token punctuation">;</span>
+
+WiFiClient client<span class="token punctuation">;</span>        <span class="token comment">// 声明一个Mysql客户端，在lianjieMysql中使用</span>
+MySQL_Connection <span class="token function">conn</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>client<span class="token punctuation">)</span><span class="token punctuation">;</span>
+MySQL_Cursor<span class="token operator">*</span> cursor<span class="token punctuation">;</span>    <span class="token comment">// </span>
+
+<span class="token comment">// 读取传感器的数据并写入到数据库</span>
+<span class="token keyword">void</span> <span class="token function">readAndRecordData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+          Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>dht<span class="token punctuation">.</span><span class="token function">readTemperature</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 在串口中打印读取到的温度</span>
+          Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">",\t"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+          Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>dht<span class="token punctuation">.</span><span class="token function">readHumidity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 在串口中打印读取到的湿度</span>
+          <span class="token keyword">char</span> buff<span class="token punctuation">[</span><span class="token number">128</span><span class="token punctuation">]</span><span class="token punctuation">;</span>                            <span class="token comment">// 定义存储传感器数据的数组</span>
+          <span class="token keyword">char</span> tem<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>      
+          <span class="token keyword">char</span> hem<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        
+    <span class="token comment">// 将传感器采集的浮点数转换为3位整数一位小数的字串放入temp</span>
+          <span class="token function">dtostrf</span><span class="token punctuation">(</span>dht<span class="token punctuation">.</span><span class="token function">readHumidity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>tem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">dtostrf</span><span class="token punctuation">(</span>dht<span class="token punctuation">.</span><span class="token function">readTemperature</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>hem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">sprintf</span><span class="token punctuation">(</span>buff<span class="token punctuation">,</span>INSERT_SQL<span class="token punctuation">,</span>tem<span class="token punctuation">,</span>hem<span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// 讲tem和hem中数据放入SQL中</span>
+          MySQL_Cursor <span class="token operator">*</span>cur_mem <span class="token operator">=</span> new <span class="token function">MySQL_Cursor</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>conn<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 创建一个Mysql实例</span>
+          cur_mem<span class="token operator">-&gt;</span><span class="token function">execute</span><span class="token punctuation">(</span>buff<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// 将采集到的温湿度值插入数据库中</span>
+          Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"读取传感器数据，并写入数据库"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          delete cur_mem<span class="token punctuation">;</span>          <span class="token comment">// 删除mysql实例为下次采集作准备</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  Serial<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token number">9600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>Serial<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">//  等待端口的释放</span>
+  Serial<span class="token punctuation">.</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\nConnecting to %s"</span><span class="token punctuation">,</span> ssid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  WiFi<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span>ssid<span class="token punctuation">,</span> pass<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// 连接WiFi</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>WiFi<span class="token punctuation">.</span><span class="token function">status</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> WL_CONNECTED<span class="token punctuation">)</span> <span class="token punctuation">{</span>     <span class="token comment">// 如果WiFi没有连接，一直循环打印点</span>
+    <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"\nConnected to network"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"My IP address is: "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>WiFi<span class="token punctuation">.</span><span class="token function">localIP</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// 打印开发板的IP地址</span>
+
+  Serial<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"Connecting to SQL...  "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>conn<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>server_addr<span class="token punctuation">,</span> <span class="token number">3306</span><span class="token punctuation">,</span> user<span class="token punctuation">,</span> password<span class="token punctuation">)</span><span class="token punctuation">)</span>         <span class="token comment">// 连接数据库</span>
+    Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"OK."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+  <span class="token keyword">else</span>
+    Serial<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"FAILED."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  cursor <span class="token operator">=</span> new <span class="token function">MySQL_Cursor</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>conn<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 创建一个数据库游标实例</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token function">readAndRecordData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        
+  <span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="6、成功将数据写入数据库"><a href="#6、成功将数据写入数据库" class="headerlink" title="6、成功将数据写入数据库"></a>6、成功将数据写入数据库</h4><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:\Users\陈梁\AppData\Roaming\Typora\typora-user-images\1682526234507.png" alt="1682526234507"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="C:\Users\陈梁\AppData\Roaming\Typora\typora-user-images\1682526261297.png" alt="1682526261297"></p>
+<h4 id="7、小结"><a href="#7、小结" class="headerlink" title="7、小结"></a>7、小结</h4>
                 
             </div>
             <hr/>
@@ -578,7 +634,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">chenliang</a>
+                    <a href="/about" rel="external nofollow noreferrer">ChenLiang</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -588,7 +644,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://2825958739.github.io/posts/77c754e.html">https://2825958739.github.io/posts/77c754e.html</a>
+                    <a href="https://2825958739.github.io/posts/37748463.html">https://2825958739.github.io/posts/37748463.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -601,7 +657,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">chenliang</a>
+                    <a href="/about" target="_blank">ChenLiang</a>
                     !
                 </span>
             </div>
@@ -625,19 +681,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/PicGo/">
-                                    <span class="chip bg-color">PicGo</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%9B%BE%E5%BA%8A/">
-                                    <span class="chip bg-color">图床</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/">
-                                    <span class="chip bg-color">域名解析</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -805,17 +849,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/posts/15025ea4.html">
+                <a href="/posts/37748463.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020616.jpg" class="responsive-img" alt="jobWebsite-task-bug">
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928014727.jpg" class="responsive-img" alt="将ESP8266开发板采集的数据持久化存储到MySQL数据库中">
                         
-                        <span class="card-title">jobWebsite-task-bug</span>
+                        <span class="card-title">将ESP8266开发板采集的数据持久化存储到MySQL数据库中</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -825,9 +870,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-06-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -836,14 +881,7 @@
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E9%94%99%E8%AF%AF%E9%9B%86/">
-                        <span class="chip bg-color">错误集</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -854,55 +892,32 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/e515d166.html">
+                <a href="/posts/cd406c66.html">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/2825958739/imgbed/posts202303021756963.png" class="responsive-img" alt="智能环保小灯">
                         
-                        <span class="card-title">智能环保小灯</span>
+                        <img src="https://cdn.jsdelivr.net/gh/LuckyZmj/imgbed@master/posts/20200928020319.jpg" class="responsive-img" alt="阅读笔记">
+                        
+                        <span class="card-title">阅读笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            这是一个有趣又环保的物联网小应用。
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-31
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%89%A9%E8%81%94%E7%BD%91%E5%BA%94%E7%94%A8%E9%9B%86/" class="post-category">
-                                    物联网应用集
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            ChenLiang
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91%E5%BA%94%E7%94%A8/">
-                        <span class="chip bg-color">物联网应用</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%99%BA%E8%83%BD%E5%B0%8F%E7%81%AF/">
-                        <span class="chip bg-color">智能小灯</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%AF%AD%E9%9F%B3%E6%8E%A7%E5%88%B6/">
-                        <span class="chip bg-color">语音控制</span>
-                    </a>
-                    
-                    <a href="/tags/App%E6%8E%A7%E5%88%B6/">
-                        <span class="chip bg-color">App控制</span>
-                    </a>
-                    
                 </div>
                 
             </div>

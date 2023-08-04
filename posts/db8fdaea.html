@@ -517,21 +517,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-16
+                    2023-06-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    20 分
                 </div>
                 
 
@@ -699,7 +699,195 @@
 </ol>
 <p>而对于我们研究的技术而言。DMA分区计量管理系统，通过摸排城区现有管网布局，进行合理分区规划，通过分区计量控制供水量，并进行分级管理。分区计量带来的好处就是能够实现对漏损处的精准定位，及时进行修复保障供水。通过物联网技术，配备远程水流量传感器和管网压力监测设备，实现分区分级精确计量，检漏定位50m范围之内，进而快速修复，缩短泄漏时间。DMA系统强大的数据采集、分析功能可以通过每天比对总、分表数据来分析推算这个小区区域管网可能的漏水量和漏水点范围，如果发现数据大幅波动，会追查相应分区计量表，定位漏损范围、查找原因，从而帮助巡检员由盲目检测、被动检测、“救火式”抢修实现精准检漏、主动检漏、“保养式”维护，从而达到有效降低管网漏损的目的。DMA技术分区如下图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://cdn.jsdelivr.net/gh/2825958739/imgbed/posts202303161244533.png" alt="https://cdn.jsdelivr.net/gh/2825958739/imgbed/posts202303161244533.png"> </p>
+<h1 id="第五章-代码"><a href="#第五章-代码" class="headerlink" title="第五章 代码"></a>第五章 代码</h1><pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;ESP8266WiFi.h&gt;
+#include &lt;PubSubClient.h&gt;
+#include &lt;Ticker.h&gt;
+// 设置wifi接入信息(请根据您的WiFi信息进行修改)
+const char *ssid = "Red";
+const char *password = "66666666";
+const char *mqttServer = "broker-cn.emqx.io";
+volatile int flow_frequency; // Measures flow sensor pulses
+// Calculated litres/hour
+float vol = 0.0, l_minute;
+unsigned char flowsensor = 0; // Sensor Input
+unsigned long currentTime;
+unsigned long cloopTime;
+Ticker ticker;
+WiFiClient wifiClient;
+PubSubClient mqttClient(wifiClient);
+int count; // Ticker计数用变量
 
+void setup()
+{
+    // Ticker定时对象
+    ticker.attach(1, tickerCount);
+    //设置ESP8266工作模式为无线终端模式
+    WiFi.mode(WIFI_STA);
+    // 连接WiFi
+    connectWifi();
+    // 设置MQTT服务器和端口号
+    mqttClient.setServer(mqttServer, 1883);
+    mqttClient.setCallback(receiveCallback);
+    // 连接MQTT服务器
+    connectMQTTServer();
+    pinMode(flowsensor, INPUT_PULLUP);
+    digitalWrite(flowsensor, HIGH);
+    Serial.begin(115200);
+    attachInterrupt(digitalPinToInterrupt(flowsensor), flow, RISING); // Setup Interrupt
+    currentTime = millis();
+    cloopTime = currentTime;
+}
+void loop()
+{
+    // 如果开发板未能成功连接服务器，则尝试连接服务器
+    if (!mqttClient.connected())
+    {
+        connectMQTTServer();
+    }
+    mqttClient.loop();
+    // 每隔3秒钟发布一次信息
+    if (count &gt;= 3)
+    {
+        pubMQTTmsg();
+        subscribeTopic();
+        count = 0;
+    }
+    currentTime = millis();
+    if (currentTime &gt;= (cloopTime + 1000))
+    {
+        cloopTime = currentTime; // Updates cloopTime
+        if (flow_frequency != 0)
+        {
+            l_minute = (flow_frequency / 7.5);
+            Serial.print("Rate: ");
+            Serial.print(l_minute);
+            Serial.println(" L/M");
+            l_minute = l_minute / 60;
+            vol = vol + l_minute;
+            Serial.print("Vol:");
+            Serial.print(vol, DEC);
+            Serial.println(" L");
+            flow_frequency = 0;          // Reset Counter
+            Serial.print(l_minute, DEC); // Print litres/hour
+            Serial.println(" L/Sec");
+            Serial.println("------------");
+        }
+        else
+        {
+            // Serial.println("flow rate=0");
+            Serial.print("Rate: ");
+            Serial.print(flow_frequency);
+            Serial.println(" L/M");
+            Serial.print("Vol:");
+            Serial.print(vol);
+            Serial.println(" L");
+            Serial.println("------------");
+        }
+    }
+}
+void tickerCount()
+{
+    count++;
+}
+void connectMQTTServer()
+{
+    // 根据ESP8266的MAC地址生成客户端ID（避免与其它ESP8266的客户端ID重名）
+    String clientId = "esp8266-" + WiFi.macAddress();
+
+    // 连接MQTT服务器。此处使用了程序首部定义的用户名和密码来实现MQTT服务端认证
+    if (mqttClient.connect(clientId.c_str(), mqttUserName, mqttPassword))
+    {
+        Serial.println("MQTT Server Connected.");
+        Serial.print("Server Address: ");
+        Serial.println(mqttServer);
+        Serial.print("ClientId: ");
+        Serial.println(clientId);
+        subscribeTopic(); // 订阅指定主题
+    }
+    else
+    {
+        Serial.print("MQTT Server Connect Failed. Client State:");
+        Serial.println(mqttClient.state());
+        delay(3000);
+    }
+}
+// 收到信息后的回调函数
+void receiveCallback(char *topic, byte *payload, unsigned int length)
+{
+    Serial.print("Message Received [");
+    Serial.print(topic);
+    Serial.print("] ");
+    for (int i = 0; i &lt; length; i++)
+    {
+        Serial.print((char)payload[i]);
+    }
+    if ((char)payload[0] == '1')
+    { // 如果收到的信息以“1”为开始
+        vol = 0;
+        Serial.println(vol);
+    }
+}
+// 订阅指定主题
+void subscribeTopic()
+{
+    // 建立订阅主题。主题名称以Taichi-Maker-Sub为前缀，后面添加设备的MAC地址。
+    // 这么做是为确保不同设备使用同一个MQTT服务器测试消息订阅时，所订阅的主题名称不同
+    String topicString = "Taichi-Maker-Sub";
+    char subTopic[topicString.length() + 1];
+    strcpy(subTopic, topicString.c_str());
+    // 通过串口监视器输出是否成功订阅主题以及订阅的主题名称
+    if (mqttClient.subscribe(subTopic))
+    {
+        Serial.println("Subscrib Topic:");
+        Serial.println(subTopic);
+    }
+    else
+    {
+        Serial.print("Subscribe Fail...");
+    }
+}
+ICACHE_RAM_ATTR void flow() // Interrupt function    ICACHE_RAM_ATTR
+{
+    flow_frequency++;
+}
+// 发布信息
+void pubMQTTmsg()
+{
+    static int value;
+    String topicString = "Pub-" + WiFi.macAddress();
+    char publishTopic[topicString.length() + 1];
+    strcpy(publishTopic, topicString.c_str());
+    // 建立发布信息。信息内容以Hello World为起始，后面添加发布次数。"Hello World " + String messageString = String(value++);
+    String messageString = String(vol);
+    char publishMsg[messageString.length() + 1];
+    strcpy(publishMsg, messageString.c_str());
+    // 实现ESP8266向主题发布信息
+    if (mqttClient.publish(publishTopic, publishMsg))
+    {
+        Serial.println("Publish Topic:");
+        Serial.println(publishTopic);
+        Serial.println("Publish message:");
+        Serial.println(publishMsg);
+    }
+    else
+    {
+        Serial.println("Message Publish Failed.");
+    }
+}
+// ESP8266连接wifi
+void connectWifi()
+{
+    WiFi.begin(ssid, password);
+    //等待WiFi连接,成功连接后输出成功信息
+    while (WiFi.status() != WL_CONNECTED)
+    {
+        delay(1000);
+        Serial.print(".");
+    }
+    Serial.println("");
+    Serial.println("WiFi Connected!");
+    Serial.println("");
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -1280,7 +1468,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">31k</span>&nbsp;字
+                class="white-color">32.5k</span>&nbsp;字
             
             
             
