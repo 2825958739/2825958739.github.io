@@ -395,103 +395,187 @@
 </div>
 
     <style>
-        li {
-            list-style: none;
-        }
-
-        .about {
-            color: rgba(56, 51, 51, 0.6) !important;
-            font-size: 3vw;
-            text-align: center;
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 700;
-            line-height: 3vw;
-
-        }
-
-        .ul {
+        /* * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Space Mono', monospace;
+        } */
+        /*     
+        body {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 1200px;
-            /* 对齐 */
-            margin: 0 auto !important;
+            justify-content: center;
+        } */
+
+        .wrapper {
+            width: 100%;
+            margin: 10vh auto;
         }
 
-        .list {
-            position: relative;
-            margin-bottom: 10px;
-            color: rgba(0, 150, 250, 0.6) !important;
-            background-color: rgba(255, 255, 255, 0.7);
+        h1 {
+            margin-bottom: 20px;
             text-align: center;
-            box-shadow: 2px 2px 2px rgba(255, 255, 255, 0.7);
         }
 
-        .list:hover {
-            transform: scale(1.02, 1.02);
-            transition: all 0.5s;
+        input {
+            display: none;
         }
 
-        .list::before {
-            position: absolute;
-            left: 1rem;
-            top: 1rem;
-            content: '📖';
-            transform: scale(2);
-
+        label {
+            display: flex;
+            width: 100%;
+            height: 50px;
+            cursor: pointer;
+            border: 3px solid #3e474f;
+            user-select: none;
         }
 
-        .list a .title {
+        label div:first-child {
+            width: 100%;
+            line-height: 45px;
+            margin-left: 10px;
+            font-size: 1.2em;
+        }
+
+        .cross {
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+
+        .cross::before,
+        .cross::after {
+            content: '';
+            border-top: 2px solid #3e474f;
+            width: 15px;
+            display: block;
+            margin-top: 18px;
+            transition: .3s;
+        }
+
+        .cross::after {
+            transform: rotate(90deg);
+            margin-top: -2px;
+        }
+
+        input:checked~label .cross::before {
+            transform: rotate(180deg);
+        }
+
+        input:checked~label .cross::after {
+            transform: rotate(0deg);
+        }
+
+        .content {
+            box-sizing: border-box;
+            font-size: 0.9em;
+            margin: 10px 10px;
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height, .5s;
+        }
+
+        input:checked~.content {
+            max-height: 400px;
+            transition: max-height, 1s;
+        }
+
+        .SecondaryMenus {
+            margin-top: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height, .5s;
+        }
+
+        .SecondaryMenus label {
+            border: none;
+            box-shadow: none;
             margin: 0;
-            height: 4rem;
-            font-size: 3rem !important;
-            border-bottom: 2px solid #fff;
-            color: rgba(0, 150, 250, 0.6) !important;
-            line-height: 4rem;
         }
 
-        .list a .explain {
-            margin: 0;
-            text-align: left;
-            white-space: normal;
-            line-height: 3vw;
-            color: rgba(0, 150, 250, 0.6) !important;
-            font-size: 1.8vw !important;
-        }
-
-
-        /* 手机端字体 */
-        @media only screen and (max-width: 601px) {
-            .list a .title {
-                font-size: 2.2rem !important;
-            }
-
-            .list::before {
-                content: '📖';
-                transform: scale(1.5);
-            }
-
-            .about {
-                font-size: 4vw;
-                line-height: 4.5vw;
-
-            }
+        input:checked~.SecondaryMenus {
+            max-height: 400px;
+            border-bottom: 2px solid #3e474f;
+            transition: 1s;
         }
     </style>
 
     <main class="centent">
-        <h2 class="about">这儿是一些基于pdfjs进行阅读的书籍或者笔记！<br><em>注意：阅读请关闭IDM</em></h2>
-        <ul class="ul">
-            <li class="list">
-                <a href="/pdfjs/web/viewer.html?file=../data/1.1 开发环境搭建(上)_物联网_嵌入式工程师-慕课网.pdf" target="_Blank">
-                    <h3 class="title">《css揭秘》</h3>
-                    <p class="explain">这本书是为新一代 CSS 所写的新一代 CSS 图书。也许从前的 CSS 只会让你联想到浏览器里的各种
-                        小把戏，但如今 CSS 已经成为一门功能强大、具备完整生态、涉及 80 多项 W3C 规范的复杂语言。在我
-                        所知的技术专家中，没人比 Lea Verou 更能领会新一代 CSS 的精髓，没人能像她那样透彻地给出问题解决之道
-                    </p>
-                </a>
-            </li>
-        </ul>
+        <div class="wrapper">
+            <h1>Actions secndary</h1>
+            <div class="wrap-1">
+                <input type="radio" id="tab-1" name="tabs">
+                <label for="tab-1">
+                    <div>第1周 嵌入式开发基石-计算机基础与C语言</div>
+                    <div class="cross"></div>
+                </label>
+                <div class="content"><a href="/pdfjs/web/viewer.html?file=../data/1.1 开发环境搭建(上)_物联网_嵌入式工程师-慕课网.pdf"
+                        target="_Blank">1.1 开发环境搭建(上)_物联网_嵌入式工程师-慕课网.pdf</a></div>
+                <div class="content"><a href="/pdfjs/web/viewer.html?file=../data/1.2 开发环境搭建(下)_物联网_嵌入式工程师-慕课网.pdf"
+                        target="_Blank">1.2 开发环境搭建(下)_物联网_嵌入式工程师-慕课网.pdf</a></div>
+                <div class="content"><a
+                        href="/pdfjs/web/viewer.html?file=../data/3.1 Linux文件系统及常用快捷键_物联网_嵌入式工程师-慕课网.pdf"
+                        target="_Blank">3.1 Linux文件系统及常用快捷键_物联网_嵌入式工程师-慕课网.pdf</a></div>
+                <div class="content"><a href="/pdfjs/web/viewer.html?file=../data/3.2 Linux基础命令_物联网_嵌入式工程师-慕课网.pdf"
+                        target="_Blank">3.2 Linux基础命令_物联网_嵌入式工程师-慕课网.pdf</a></div>
+                <div class="content"><a href="/pdfjs/web/viewer.html?file=../data/4.1 Vim编辑器的介绍及使用名节_物联网_嵌入式工程师-慕课网"
+                        target="_Blank">4.1 Vim编辑器的介绍及使用名节_物联网_嵌入式工程师-慕课网</a></div>
+                <div class="content"><a href="/pdfjs/web/viewer.html?file=../data/4.2 GCC编译器介绍及使用_物联网_嵌入式工程师-慕课网.pdf"
+                        target="_Blank">4.2 GCC编译器介绍及使用_物联网_嵌入式工程师-慕课网.pdf</a></div>
+                <div class="content"><a href="/pdfjs/web/viewer.html?file=../data/7.5 数据在内存的存储_物联网_嵌入式工程师-慕课网.pdf"
+                        target="_Blank">7.5 数据在内存的存储_物联网_嵌入式工程师-慕课网.pdf</a></div>
+            </div>
+
+            <div class="wrap-2">
+                <input type="radio" id="tab-2" name="tabs">
+                <label for="tab-2">
+                    <div>第2周 C语言进阶-编程思想</div>
+                    <div class="cross"></div>
+                </label>
+                <div class="content"><a
+                        href="/pdfjs/web/viewer.html?file=../data/第2周C语言编程思想/2.1 C语言中的数组_物联网_嵌入式工程师-慕课网.pdf"
+                        target="_Blank">2.1 C语言中的数组_物联网_嵌入式工程师-慕课网.pdf</a></div>
+                <div class="content"><a
+                        href="/pdfjs/web/viewer.html?file=../data/第2周C语言编程思想/2.2 数组的初始化_物联网_嵌入式工程师-慕课网.pdf"
+                        target="_Blank">2.2 数组的初始化_物联网_嵌入式工程师-慕课网.pdf</a></div>
+                <div class="content"><a
+                        href="/pdfjs/web/viewer.html?file=../data/第2周C语言编程思想/2.3 字符数组和字符串_物联网_嵌入式工程师-慕课网"
+                        target="_Blank">2.3 字符数组和字符串_物联网_嵌入式工程师-慕课网</a></div>
+                <div class="content"><a
+                        href="/pdfjs/web/viewer.html?file=../data/第2周C语言编程思想/2.4 C语言中的二维数组_物联网_嵌入式工程师-慕课网.pdf"
+                        target="_Blank">2.4 C语言中的二维数组_物联网_嵌入式工程师-慕课网.pdf</a></div>
+                <div class="content"><a
+                        href="/pdfjs/web/viewer.html?file=../data/第2周C语言编程思想/3.1 C语言中的指针基础_物联网_嵌入式工程师-慕课网.pdf"
+                        target="_Blank">3.1 C语言中的指针基础_物联网_嵌入式工程师-慕课网.pdf</a></div>
+            </div>
+
+            <div class="wrap-3">
+                <input type="radio" id="tab-3" name="tabs">
+                <label for="tab-3">
+                    <div>菜单三</div>
+                    <div class="cross"></div>
+                </label>
+                <div class="SecondaryMenus">
+                    <div class="SecondaryMenus-wrap">
+                        <input type="radio" id="SecondaryMenus-1" name="SecondaryMenus">
+                        <label for="SecondaryMenus-1">
+                            <div>三-一</div>
+                            <div class="cross"></div>
+                        </label>
+                        <div class="content">内容时擦爱吃三</div>
+                    </div>
+                    <div class="SecondaryMenus-wrap">
+                        <input type="radio" id="SecondaryMenus-2" name="SecondaryMenus">
+                        <label for="SecondaryMenus-2">
+                            <div>三-二</div>
+                            <div class="cross"></div>
+                        </label>
+                        <div class="content">内容时擦爱吃三</div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
 
     </main>
 
